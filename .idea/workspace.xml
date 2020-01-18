@@ -1,14 +1,194 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="93016c5d-a9b6-46ef-8e83-19d2a8f12c2e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LinkButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TodoItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/CreateTodoForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/EditTodoTaskForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Filter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/LoginForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Navigation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Pagination.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/TodoList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Auth/actionApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Auth/actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Auth/reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Auth/store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Todo/actionApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Todo/actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Todo/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Todo/reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/clientMiddleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/configureStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/rootReducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Auth/Auth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Auth/Auth.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Home/Home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Home/Home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Home/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Profile/Profile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Profile/Profile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Profile/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1WVttdySM1zXPriPlomY5ngq4kt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="compactDirectories" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.10.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/containers" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v11.15.0/bin/node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/containers" />
+      <recent name="$PROJECT_DIR$/src/views" />
+      <recent name="$PROJECT_DIR$/src/views/Auth" />
+      <recent name="$PROJECT_DIR$/src/modules/Auth" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views/Main" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/modules/Auth" />
+      <recent name="$PROJECT_DIR$/src/store" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93016c5d-a9b6-46ef-8e83-19d2a8f12c2e" name="Default Changelist" comment="" />
+      <created>1579246806600</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579246806600</updated>
+      <workItem from="1579246818607" duration="25864000" />
+      <workItem from="1579273451563" duration="54633000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="824" y="301" key="CommitChangelistDialog2" timestamp="1579380194285">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="824" y="301" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1579380194285" />
+    <state width="2028" height="233" key="GridCell.Tab.0.bottom" timestamp="1579378764058">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2028" height="233" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1579378764058" />
+    <state width="2028" height="233" key="GridCell.Tab.0.center" timestamp="1579378764057">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2028" height="233" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1579378764057" />
+    <state width="2028" height="233" key="GridCell.Tab.0.left" timestamp="1579378764056">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2028" height="233" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1579378764056" />
+    <state width="2028" height="233" key="GridCell.Tab.0.right" timestamp="1579378764057">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2028" height="233" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1579378764057" />
+    <state x="785" y="337" key="SettingsEditor" timestamp="1579261732495">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="785" y="337" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1579261732495" />
+    <state x="248" y="96" width="1354" height="1240" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1579362279450">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="248" y="96" width="1354" height="1240" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1579362279450" />
+    <state x="100" y="100" width="1354" height="1240" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1579351995517">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="100" y="100" width="1354" height="1240" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1579351995517" />
+    <state x="1157" y="633" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579369402066">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1157" y="633" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1440@0.0.2560.1440" timestamp="1579369402066" />
+    <state x="1084" y="602" width="670" height="676" key="search.everywhere.popup" timestamp="1579292928336">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1084" y="602" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1579292928336" />
   </component>
 </project>
