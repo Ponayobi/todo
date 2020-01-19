@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="93016c5d-a9b6-46ef-8e83-19d2a8f12c2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579439744962</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Change Navigations style">
+      <created>1579439916754</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1579439916754</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,13 +173,14 @@
     <MESSAGE value="Add NotificationsSystem" />
     <MESSAGE value="Add logout in middleware" />
     <MESSAGE value="Add handle server error for LoginForm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add handle server error for LoginForm" />
+    <MESSAGE value="Change Navigations style" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change Navigations style" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="172" y="63" width="1464" height="1033" key="CommitChangelistDialog2" timestamp="1579439744823">
+    <state x="172" y="63" width="1464" height="1033" key="CommitChangelistDialog2" timestamp="1579439916589">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="172" y="63" width="1464" height="1033" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1579439744823" />
+    <state x="172" y="63" width="1464" height="1033" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1579439916589" />
     <state width="2028" height="233" key="GridCell.Tab.0.bottom" timestamp="1579433229759">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -193,10 +201,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="785" y="337" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1579261732495" />
-    <state x="775" y="438" key="Vcs.Push.Dialog.v2" timestamp="1579439749480">
+    <state x="775" y="438" key="Vcs.Push.Dialog.v2" timestamp="1579439920563">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="775" y="438" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1579439749480" />
+    <state x="775" y="438" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1579439920563" />
     <state x="248" y="96" width="1354" height="1240" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1579362279450">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>

@@ -14,7 +14,7 @@ async function request(url: string, params: any, method: ApiMethods = 'GET') {
         mode: 'cors',
     };
 
-    url += '?developer=sadsewds';
+    url += '?developer=Ponayobi';
 
     if (params) {
         if (method === 'GET') {
