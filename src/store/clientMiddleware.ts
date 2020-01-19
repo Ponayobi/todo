@@ -1,5 +1,6 @@
 import {Action, Middleware, MiddlewareAPI, Dispatch, AnyAction} from 'redux';
 import { RootState } from './index';
+import {logout} from "../modules/Auth/actions";
 
 export interface ClientDispatch<S, E, A extends Action> {
     <T extends A>(action: T): T;
@@ -18,8 +19,14 @@ export const clientMiddleware: ClientMiddleware<RootState> =
     <S extends RootState>({dispatch,getState}: MiddlewareAPI<Dispatch, S>) =>
         (next: Dispatch) => async <A extends Action>(action: A | any): Promise<A | any> => {
 
-    if (typeof action === 'function') {
-        return action(dispatch, getState);
+    const { auth :{ accessTokenExp }} = getState();
+
+    if (accessTokenExp) {
+        const currentTime = Date.now().valueOf();
+
+        if (accessTokenExp <= currentTime) {
+            dispatch(logout());
+        }
     }
 
     return next(action);

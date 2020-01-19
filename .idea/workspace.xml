@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93016c5d-a9b6-46ef-8e83-19d2a8f12c2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/NotificationsSystem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/EditTodoTaskForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EditTodoTaskForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Auth/actionApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Auth/actionApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Auth/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Auth/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Auth/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Auth/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Todo/actionApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Todo/actionApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/configureStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/configureStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/rootReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/rootReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/clientMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/clientMiddleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579430986103</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add NotificationsSystem">
+      <created>1579438188975</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1579438188975</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,13 +149,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update .gitignore" />
+    <MESSAGE value="Add NotificationsSystem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add NotificationsSystem" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="824" y="301" key="CommitChangelistDialog2" timestamp="1579430985851">
+    <state x="824" y="301" key="CommitChangelistDialog2" timestamp="1579438186311">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="824" y="301" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1579430985851" />
+    <state x="824" y="301" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1579438186311" />
     <state width="2028" height="233" key="GridCell.Tab.0.bottom" timestamp="1579433229759">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
