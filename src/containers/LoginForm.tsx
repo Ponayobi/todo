@@ -15,11 +15,17 @@ const LoginSchema = yup.object().shape({
 });
 
 export function LoginForm() {
-    const {register, handleSubmit, watch, errors} = useForm<LoginRequest>({validationSchema: LoginSchema});
+    const {register, handleSubmit, watch, errors, setError} = useForm<LoginRequest>({validationSchema: LoginSchema});
     const dispatch = useDispatch();
 
-    const onLogin = (data: LoginRequest) => {
-        dispatch(loginRequest(data))
+    const onLogin = async (data: LoginRequest) => {
+        const response: any = await dispatch(loginRequest(data));
+        if (response) {
+            Object.keys(response.message).forEach(key => {
+                console.log(response.message[key]);
+                setError(key, key, response.message[key])
+            });
+        }
     };
 
     console.log('render LoginForm');

@@ -33,7 +33,6 @@ async function request(url: string, params: any, method: ApiMethods = 'GET') {
     const result = await response.json();
 
     return result;
-
 }
 
 function objectToQueryString(obj: any): string {

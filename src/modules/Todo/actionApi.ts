@@ -10,6 +10,7 @@ import {
 } from "../../api";
 import { success } from 'react-notification-system-redux';
 import { createTodo, updateTodo, updateTodoList, updateTodoFilter } from "./actions";
+import { push } from "connected-react-router";
 
 export const createTaskRequest = (request: CreateTodoListTaskRequest) => async (dispatch: Dispatch) => {
     const task = await createTodoListTask(request);
@@ -34,6 +35,7 @@ export const updateTaskRequest = (request: TodoListTask) => async (dispatch: Dis
         position: 'bc',
         autoDismiss: 10,
     }));
+    dispatch(push('/'));
 };
 export const getTodoListRequest = (request?: GetTodoListRequest) => async (dispatch: Dispatch) => {
     const task = await getTodoList(request);

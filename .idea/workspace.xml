@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="93016c5d-a9b6-46ef-8e83-19d2a8f12c2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/clientMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/clientMiddleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Auth/actionApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Auth/actionApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Todo/actionApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Todo/actionApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579438188975</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add logout in middleware">
+      <created>1579438644912</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1579438644912</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,13 +160,14 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update .gitignore" />
     <MESSAGE value="Add NotificationsSystem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add NotificationsSystem" />
+    <MESSAGE value="Add logout in middleware" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add logout in middleware" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="824" y="301" key="CommitChangelistDialog2" timestamp="1579438186311">
+    <state x="172" y="63" width="1464" height="1033" key="CommitChangelistDialog2" timestamp="1579439710198">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="824" y="301" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1579438186311" />
+    <state x="172" y="63" width="1464" height="1033" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1579439710198" />
     <state width="2028" height="233" key="GridCell.Tab.0.bottom" timestamp="1579433229759">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -193,9 +204,9 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1157" y="633" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1440@0.0.2560.1440" timestamp="1579369402066" />
-    <state x="1084" y="602" width="670" height="676" key="search.everywhere.popup" timestamp="1579435510379">
+    <state x="1084" y="602" width="670" height="676" key="search.everywhere.popup" timestamp="1579439306905">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1084" y="602" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1579435510379" />
+    <state x="1084" y="602" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1579439306905" />
   </component>
 </project>

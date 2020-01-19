@@ -8,6 +8,8 @@ import { push } from 'connected-react-router';
 
 export const loginRequest = (request: LoginRequest) => async (dispatch: Dispatch) => {
     const response = await login(request);
+    if (response.status !== "ok") return response;
+
     response.message && dispatch(setToken(response.message.token));
     dispatch(success({
         message: 'You have successfully logged in',
