@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93016c5d-a9b6-46ef-8e83-19d2a8f12c2e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/NotificationsSystem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EditTodoTaskForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EditTodoTaskForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Auth/actionApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Auth/actionApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Auth/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Auth/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Auth/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Auth/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Todo/actionApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Todo/actionApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/configureStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/configureStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/rootReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/rootReducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579430689293</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update .gitignore">
+      <created>1579430986103</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579430986103</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,27 +152,31 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update .gitignore" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="824" y="301" key="CommitChangelistDialog2" timestamp="1579430711747">
+    <state x="824" y="301" key="CommitChangelistDialog2" timestamp="1579430985851">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="824" y="301" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1579430711747" />
-    <state width="2028" height="233" key="GridCell.Tab.0.bottom" timestamp="1579378764058">
+    <state x="824" y="301" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1579430985851" />
+    <state width="2028" height="233" key="GridCell.Tab.0.bottom" timestamp="1579433229759">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="2028" height="233" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1579378764058" />
-    <state width="2028" height="233" key="GridCell.Tab.0.center" timestamp="1579378764057">
+    <state width="2028" height="233" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1579433229759" />
+    <state width="2028" height="233" key="GridCell.Tab.0.center" timestamp="1579433229758">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="2028" height="233" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1579378764057" />
-    <state width="2028" height="233" key="GridCell.Tab.0.left" timestamp="1579378764056">
+    <state width="2028" height="233" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1579433229758" />
+    <state width="2028" height="233" key="GridCell.Tab.0.left" timestamp="1579433229758">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="2028" height="233" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1579378764056" />
-    <state width="2028" height="233" key="GridCell.Tab.0.right" timestamp="1579378764057">
+    <state width="2028" height="233" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1579433229758" />
+    <state width="2028" height="233" key="GridCell.Tab.0.right" timestamp="1579433229759">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state width="2028" height="233" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1579378764057" />
+    <state width="2028" height="233" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1579433229759" />
     <state x="785" y="337" key="SettingsEditor" timestamp="1579261732495">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
@@ -166,17 +189,17 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="248" y="96" width="1354" height="1240" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1579362279450" />
-    <state x="100" y="100" width="1354" height="1240" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1579351995517">
+    <state x="100" y="100" width="1354" height="1240" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1579435736781">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="100" y="100" width="1354" height="1240" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1579351995517" />
+    <state x="100" y="100" width="1354" height="1240" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1579435736781" />
     <state x="1157" y="633" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579369402066">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1157" y="633" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1440@0.0.2560.1440" timestamp="1579369402066" />
-    <state x="1084" y="602" width="670" height="676" key="search.everywhere.popup" timestamp="1579292928336">
+    <state x="1084" y="602" width="670" height="676" key="search.everywhere.popup" timestamp="1579435510379">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1084" y="602" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1579292928336" />
+    <state x="1084" y="602" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1579435510379" />
   </component>
 </project>

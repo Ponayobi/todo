@@ -1,8 +1,9 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Redirect, useLocation, RouteProps, Switch } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router';
+import { Route, Redirect, RouteProps, Switch } from 'react-router-dom';
 import {Provider, useSelector} from 'react-redux';
-import {configureStore, RootState, persistConfig} from "./store";
+import {configureStore, RootState, persistConfig } from "./store";
 import {getStoredState, Persistor, REHYDRATE} from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -11,12 +12,15 @@ import { Navigation } from "./containers/Navigation";
 import { Home } from './views/Home';
 import { Auth } from './views/Auth';
 import { Profile } from "./views/Profile";
+import { NotificationsSystem } from "./containers/NotificationsSystem";
 import { Store } from "redux";
 import * as serviceWorker from './serviceWorker';
+import {History, LocationState} from "history";
 
 interface SetupProps {
     store: Store,
     persistor: Persistor,
+    history: History<LocationState>
 }
 
 export function ProtectedRoute({ children, ...rest }: RouteProps) {
@@ -36,11 +40,11 @@ export function ProtectedRoute({ children, ...rest }: RouteProps) {
     );
 }
 
-const Setup = ({ store, persistor}: SetupProps) => {
+const Setup = ({ store, persistor, history}: SetupProps) => {
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
-                <Router>
+                <ConnectedRouter history={history}>
                     <Navigation />
                     <Switch>
                         <Redirect exact from="/" to="/home" />
@@ -48,13 +52,14 @@ const Setup = ({ store, persistor}: SetupProps) => {
                         <Route path="/login" component={Auth} />
                         <ProtectedRoute path="/profile" component={Profile} />
                     </Switch>
-                </Router>
+                    <NotificationsSystem />
+                </ConnectedRouter>
             </PersistGate>
         </Provider>
     );
 };
 
-const { store, persistor } = configureStore();
+const { store, persistor, history } = configureStore();
 
 window.addEventListener('storage', async function() {
     let state = await getStoredState(persistConfig);
@@ -66,7 +71,7 @@ window.addEventListener('storage', async function() {
     });
 });
 
-ReactDOM.render(<Setup store={store} persistor={persistor} />, document.getElementById('root'));
+ReactDOM.render(<Setup store={store} persistor={persistor} history={history} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

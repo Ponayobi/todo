@@ -1,5 +1,4 @@
-import { rootReducer } from './rootReducer';
-import { configureStore } from './configureStore';
+import { configureStore, rootReducer } from './configureStore';
 import {
     useSelector as useReduxSelector,
     TypedUseSelectorHook,

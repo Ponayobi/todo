@@ -23,7 +23,7 @@ interface EditTodoTaskFormData {
 
 export function EditTodoTaskForm({ onEdit }: CreateTodoFormProps) {
     const { todoId } = useParams();
-    const todo = useSelector((state: RootState) => state.todo.items.find((item) => item.id.toString() === todoId ));
+    const todo = useSelector((state: RootState) => state.todo.items.find((item: TodoListTask) => item.id.toString() === todoId ));
     const {register, handleSubmit, errors} = useForm<EditTodoTaskFormData>({validationSchema: EditTodoSchema});
 
     if (!todo) {

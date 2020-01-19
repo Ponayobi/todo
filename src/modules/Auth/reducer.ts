@@ -1,6 +1,6 @@
 import { createReducer } from 'redux-act';
-import { AuthState } from './store';
 import {logout, setToken} from './actions';
+import {AuthState} from "./index";
 
 const defaultState: AuthState = {};
 
