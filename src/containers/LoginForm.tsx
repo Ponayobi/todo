@@ -26,7 +26,7 @@ export function LoginForm({ onLogin}: LoginFormProps) {
             reset();
             onLogin && onLogin(data);
         } catch (errors) {
-            Object.keys(errors).forEach(key => {
+            errors && Object.keys(errors).forEach(key => {
                 setError(key, key, errors[key])
             });
         }

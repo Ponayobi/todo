@@ -28,7 +28,7 @@ export function CreateTodoForm({ onCreate }: CreateTodoFormProps) {
             reset();
             onCreate && onCreate(todo);
         } catch (errors) {
-            Object.keys(errors).forEach(key => {
+            errors && Object.keys(errors).forEach(key => {
                 setError(key, key, errors[key])
             });
         }

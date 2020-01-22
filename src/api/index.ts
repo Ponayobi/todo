@@ -50,6 +50,7 @@ function createTodoRequest(params: CreateTodoRequest) {
     return request<Todo>({
         url: '/create',
         method: 'post',
+        data: params,
     });
 }
 

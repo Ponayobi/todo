@@ -50,7 +50,7 @@ export const EditTodoForm = ({ onEdit }: CreateTodoFormProps) => {
             await dispatch(editTodo(updatedTodo));
             onEdit && onEdit(updatedTodo);
         } catch (errors) {
-            Object.keys(errors).forEach(key => {
+            errors && Object.keys(errors).forEach(key => {
                 setError(key, key, errors[key])
             });
         }

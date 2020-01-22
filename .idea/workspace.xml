@@ -1,38 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="93016c5d-a9b6-46ef-8e83-19d2a8f12c2e" name="Default Changelist" comment="Change developer api name">
-      <change afterPath="$PROJECT_DIR$/src/containers/FilterDirections.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/FilterTypes.tsx" afterDir="false" />
+    <list default="true" id="93016c5d-a9b6-46ef-8e83-19d2a8f12c2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LinkButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LinkButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TodoItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/CreateTodoForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/CreateTodoForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/EditTodoTaskForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EditTodoForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Filter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EditTodoForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EditTodoForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Navigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/NotificationsSystem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/NotificationsSystem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Pagination.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/TodoList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Auth/actionApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Auth/actionApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Auth/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Auth/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Todo/actionApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Todo/actionApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Todo/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Todo/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Todo/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Todo/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Todo/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Todo/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Auth/Auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Auth/Auth.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Home/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Profile/Profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Profile/Profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Profile/Profile.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +111,7 @@
       <updated>1579246806600</updated>
       <workItem from="1579246818607" duration="25864000" />
       <workItem from="1579273451563" duration="54633000" />
-      <workItem from="1579627447958" duration="38794000" />
+      <workItem from="1579627447958" duration="40394000" />
     </task>
     <task id="LOCAL-00001" summary="Revert &quot;Init gh-pages&quot;&#10;&#10;This reverts commit fc685cb5">
       <created>1579430689293</created>
@@ -188,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579440096061</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Refactoring">
+      <created>1579706467624</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1579706467697</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +195,8 @@
     <MESSAGE value="Add handle server error for LoginForm" />
     <MESSAGE value="Change Navigations style" />
     <MESSAGE value="Change developer api name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change developer api name" />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
   </component>
   <component name="WindowStateProjectService">
     <state x="172" y="63" width="1464" height="1033" key="CommitChangelistDialog2" timestamp="1579706463953">
@@ -241,10 +223,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="785" y="337" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1579261732495" />
-    <state x="775" y="438" key="Vcs.Push.Dialog.v2" timestamp="1579706444975">
+    <state x="775" y="438" key="Vcs.Push.Dialog.v2" timestamp="1579706778845">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="775" y="438" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1579706444975" />
+    <state x="775" y="438" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1579706778845" />
     <state x="248" y="96" width="1354" height="1240" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1579362279450">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
