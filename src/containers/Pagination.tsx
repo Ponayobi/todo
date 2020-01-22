@@ -1,15 +1,15 @@
 import * as React from "react";
-import {LinkButton} from "../components/LinkButton";
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../store";
-import {getTodoListRequest} from "../modules/Todo/actionApi";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
+import { Filter, FilterFields } from "./Filter";
+import { TodoFilters } from "../modules/Todo";
 
 enum PageTypes {
     Left = 'LEFT',
     Right = 'RIGHT',
 }
 
-const range = (from: number, to: number, step = 1): (string | number)[] => {
+const range = (from: number, to: number, step = 1): number[] => {
     let i = from;
     const range = [];
 
@@ -21,7 +21,7 @@ const range = (from: number, to: number, step = 1): (string | number)[] => {
     return range;
 };
 
-const fetchPageNumbers = (totalPages: number, currentPage: number, pageNeighbours: number) => {
+const fetchPageNumbers = (totalPages: number, currentPage: number, pageNeighbours: number): Array<number | PageTypes> => {
     const totalNumbers = (pageNeighbours * 2) + 3;
     const totalBlocks = totalNumbers + 2;
 
@@ -31,6 +31,7 @@ const fetchPageNumbers = (totalPages: number, currentPage: number, pageNeighbour
     const endPage = Math.min(totalPages - 1, currentPage + pageNeighbours);
 
     let pages = range(startPage, endPage);
+    let result: Array<number | PageTypes>;
 
     const hasLeftSpill = startPage > 2;
     const hasRightSpill = (totalPages - endPage) > 1;
@@ -39,29 +40,28 @@ const fetchPageNumbers = (totalPages: number, currentPage: number, pageNeighbour
     switch (true) {
         case (hasLeftSpill && !hasRightSpill): {
             const extraPages = range(startPage - spillOffset, startPage - 1);
-            pages = [PageTypes.Left, ...extraPages, ...pages];
+            result = [PageTypes.Left, ...extraPages, ...pages];
             break;
         }
         case (!hasLeftSpill && hasRightSpill): {
             const extraPages = range(endPage + 1, endPage + spillOffset);
-            pages = [...pages, ...extraPages, PageTypes.Right];
+            result = [...pages, ...extraPages, PageTypes.Right];
             break;
         }
         case (hasLeftSpill && hasRightSpill):
         default: {
-            pages = [PageTypes.Left, ...pages, PageTypes.Right];
+            result = [PageTypes.Left, ...pages, PageTypes.Right];
             break;
         }
     }
 
-    return [1, ...pages, totalPages];
+    return [1, ...result, totalPages];
 };
 
 export interface PaginationProps {}
 
 export function Pagination() {
-    const dispatch = useDispatch();
-    const filter = useSelector(({ todo }: RootState) => todo.filter);
+    const filters = useSelector(({ todo }: RootState) => todo.filters);
 
     const pageLimit = 3;
     const pageNeighbours = 2;
@@ -70,48 +70,27 @@ export function Pagination() {
 
     if (totalPages === 1) return null;
 
-    const pages = fetchPageNumbers(totalPages, filter.page, pageNeighbours);
+    const pages = fetchPageNumbers(totalPages, filters.pageNumber, pageNeighbours);
 
-    const handleClickPage = (data: number | PageTypes) => {
-
-        let page = filter.page;
-
-        switch (data) {
-            case PageTypes.Left: {
-                page -=  1;
-                break;
-            }
-            case PageTypes.Right: {
-                page +=  1;
-                break;
-            }
-            default: {
-                page = data;
-                break;
-            }
+    const paginationFields: Array<FilterFields<number>> = pages.map((page) => {
+        switch (page) {
+            case PageTypes.Right:
+                return {
+                    name: '...', value: undefined,
+                };
+            case PageTypes.Left:
+                return {
+                    name: '...', value: undefined,
+                };
+            default:
+                return {
+                    name: page.toString(), value: page,
+                };
         }
-
-        if (page === filter.page) return;
-
-        dispatch(getTodoListRequest({
-            ...filter,
-            page
-        }));
-    };
+    });
 
     console.log('render Pagination');
     return (
-        <ul className="pagination">
-            {pages.map((page) => (
-                <React.Fragment key={page}>
-                    <li>
-                        <LinkButton value={page} isActive={filter.page === page} onClick={handleClickPage}>
-                            {page}
-                        </LinkButton>
-                    </li>
-                    {' '}
-                </React.Fragment>
-            ))}
-        </ul>
+        <Filter<TodoFilters> fields={paginationFields} fieldName="pageNumber" fieldValue={filters.pageNumber} />
     )
 }

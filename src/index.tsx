@@ -16,6 +16,8 @@ import { NotificationsSystem } from "./containers/NotificationsSystem";
 import { Store } from "redux";
 import * as serviceWorker from './serviceWorker';
 import {History, LocationState} from "history";
+import {useEffect} from "react";
+import {getTodoList} from "./modules/Todo/actionApi";
 
 interface SetupProps {
     store: Store,
@@ -40,7 +42,14 @@ export function ProtectedRoute({ children, ...rest }: RouteProps) {
     );
 }
 
-const Setup = ({ store, persistor, history}: SetupProps) => {
+const Setup= ({ store, persistor, history}: SetupProps) => {
+    const dispatch = store.dispatch;
+
+    useEffect(() => {
+        // @ts-ignore
+        dispatch(getTodoList());
+    });
+
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>

@@ -1,28 +1,29 @@
-import api, {ApiResponse} from './api';
+import { request } from './api';
 
-export type GetTodoListSortField = "id" | "username" | "email" | "status";
-export type GetTodoListSortDirection = "asc" | "desc";
-export interface GetTodoListRequest {
-    sort_field: GetTodoListSortField;
-    sort_direction: GetTodoListSortDirection;
+export type TodoListSortField = "id" | "username" | "email" | "status";
+export type TodoListSortDirection = "asc" | "desc";
+
+export interface GetTodoListFilters {
+    sort_field: TodoListSortField;
+    sort_direction: TodoListSortDirection;
     page: number;
 }
-export enum TodoListTaskStatus {
+export enum TodoStatus {
     NoCompleted = 0,
     Complete = 10,
 }
-export type TodoListTask = {
+export type Todo = {
     id: number;
     username: string;
     email: string;
     text: string;
-    status: TodoListTaskStatus;
+    status: TodoStatus;
 }
 export interface GetTodoListResponse {
-    tasks: TodoListTask[];
+    tasks: Todo[];
     total_task_count: string;
 }
-export interface CreateTodoListTaskRequest {
+export interface CreateTodoRequest {
     username: string;
     email: string;
     text: string;
@@ -34,35 +35,47 @@ export interface LoginRequest {
 export interface LoginResponse {
     token: string;
 }
-export interface UpdateTodoRequest extends TodoListTask {
+export interface EditTodoRequest extends Todo {
     token?: string;
 }
 
-async function getTodoList(params?: GetTodoListRequest): Promise<ApiResponse<GetTodoListResponse>> {
-    return await api.get<GetTodoListResponse>('/', params);
+function getTodoListRequest(params: GetTodoListFilters) {
+    return request<GetTodoListResponse>({
+        url: '/',
+        params,
+    });
 }
 
-async function createTodoListTask(params: CreateTodoListTaskRequest): Promise<ApiResponse<TodoListTask>> {
-    return await api.post<TodoListTask>('/create', params);
+function createTodoRequest(params: CreateTodoRequest) {
+    return request<Todo>({
+        url: '/create',
+        method: 'post',
+    });
 }
 
-async function login(params: LoginRequest): Promise<ApiResponse<LoginResponse>> {
-    return await api.post<LoginResponse>('/login', params);
+function editTodoRequest(params: EditTodoRequest) {
+    return request<Todo>({
+        url: `/edit/${params.id}`,
+        method: 'post',
+        data: {
+            text: params.text,
+            status: params.status,
+            token: params.token,
+        }
+    });
 }
 
-async function updateTodoListTask(params: UpdateTodoRequest): Promise<ApiResponse<TodoListTask>> {
-    return await api.post<TodoListTask>(`/edit/${params.id}`, { text: params.text, status: params.status, token: params.token })
-        .then((response) => {
-            return {
-                ...response,
-                message: params
-            };
-        });
+function loginRequest(params: LoginRequest) {
+    return request<LoginResponse>({
+        url: '/login',
+        method: 'post',
+        data: params,
+    });
 }
 
 export {
-    getTodoList,
-    createTodoListTask,
-    login,
-    updateTodoListTask,
+    getTodoListRequest,
+    createTodoRequest,
+    loginRequest,
+    editTodoRequest,
 }

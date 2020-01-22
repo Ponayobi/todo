@@ -17,16 +17,17 @@ export const Profile: React.FC = () => {
         <div className="todoapp">
             <header className="header">
                 <h1>Profile</h1>
-                <NavLink
-                    exact to="/login"
-                    onClick={handleClick}
-                    activeStyle={{
-                        textDecoration: 'none',
-                        color: 'black'
-                    }}
-                >
-                    Logout
-                </NavLink>
+                <div className="create-todo-form">
+                    <div className="create-todo-form__field">
+                        <NavLink
+                            exact to="/login"
+                            onClick={handleClick}
+                            className="submit-btn"
+                        >
+                            Logout
+                        </NavLink>
+                    </div>
+                </div>
             </header>
         </div>
     );

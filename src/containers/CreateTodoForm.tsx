@@ -2,10 +2,12 @@ import * as React from "react";
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import classNames from "classnames";
-import {CreateTodoListTaskRequest} from "../api";
+import {Todo} from "../api";
+import {createTodo} from "../modules/Todo/actionApi";
+import {useDispatch} from "react-redux";
 
 export interface CreateTodoFormProps {
-    onCreate: (data: CreateTodoListTaskRequest) => void;
+    onCreate?: (data: Todo) => void;
 }
 
 const CreateTodoSchema = yup.object().shape({
@@ -15,17 +17,26 @@ const CreateTodoSchema = yup.object().shape({
 });
 
 export function CreateTodoForm({ onCreate }: CreateTodoFormProps) {
-    const { register, handleSubmit, errors, reset } =
-        useForm<CreateTodoListTaskRequest>({validationSchema: CreateTodoSchema, reValidateMode: "onSubmit"});
+    const { register, handleSubmit, errors, reset, setError } =
+        useForm<Todo>({validationSchema: CreateTodoSchema, reValidateMode: "onSubmit"});
 
-    const onSubmit = (data: CreateTodoListTaskRequest) => {
-        reset();
-        onCreate(data);
+    const dispatch = useDispatch();
+
+    const handleCreateTodo = async (todo: Todo) => {
+        try {
+            await dispatch(createTodo(todo));
+            reset();
+            onCreate && onCreate(todo);
+        } catch (errors) {
+            Object.keys(errors).forEach(key => {
+                setError(key, key, errors[key])
+            });
+        }
     };
 
     console.log('render CreateTodoForm');
     return (
-        <form className="create-todo-form" onSubmit={handleSubmit(onSubmit)}>
+        <form className="create-todo-form" onSubmit={handleSubmit(handleCreateTodo)}>
             <div className={classNames("create-todo-form__field", {error: errors.text})}>
               <textarea
                   ref={register({required: true})}

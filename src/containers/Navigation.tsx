@@ -11,6 +11,7 @@ export const Navigation: React.FC = () => {
                         textDecoration: 'none',
                         color: 'black'
                     }}
+                    className="link-btn clickable"
                 >
                     Home
                 </NavLink>
@@ -22,6 +23,7 @@ export const Navigation: React.FC = () => {
                         textDecoration: 'none',
                         color: 'black'
                     }}
+                    className="link-btn clickable"
                 >
                     Profile
                 </NavLink>

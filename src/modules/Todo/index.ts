@@ -1,7 +1,17 @@
-import {GetTodoListRequest, TodoListTask} from "../../api";
+import { Todo, TodoListSortDirection, TodoListSortField } from "../../api";
+
+export interface EditableTodo extends Todo {
+    isEdited: boolean;
+}
+
+export interface TodoFilters {
+    sortField: TodoListSortField;
+    sortDirection: TodoListSortDirection;
+    pageNumber: number;
+}
 
 export interface TodoState {
-    items: TodoListTask[];
+    items: EditableTodo[];
     totalCount: number;
-    filter: GetTodoListRequest;
+    filters: TodoFilters;
 }

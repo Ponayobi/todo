@@ -2,13 +2,14 @@ import * as React from "react";
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import classNames from "classnames";
-import { TodoListTask, TodoListTaskStatus} from "../api";
+import { Todo, TodoStatus} from "../api";
 import { useParams } from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../store";
+import {editTodo} from "../modules/Todo/actionApi";
 
 export interface CreateTodoFormProps {
-    onEdit: (data: TodoListTask) => void;
+    onEdit?: (data: Todo) => void;
 }
 
 const EditTodoSchema = yup.object().shape({
@@ -20,32 +21,47 @@ interface EditTodoTaskFormData {
     status: boolean;
     text: string;
 }
-
-export function EditTodoTaskForm({ onEdit }: CreateTodoFormProps) {
+export const EditTodoForm = ({ onEdit }: CreateTodoFormProps) => {
+    const dispatch = useDispatch();
     const { todoId } = useParams();
-    const todo = useSelector((state: RootState) => state.todo.items.find((item: TodoListTask) => item.id.toString() === todoId ));
-    const {register, handleSubmit, errors} = useForm<EditTodoTaskFormData>({validationSchema: EditTodoSchema});
+    const todo = useSelector((state: RootState) => state.todo.items.find((item: Todo) => item.id.toString() === todoId ));
+    const {register, handleSubmit, errors, setError} = useForm<EditTodoTaskFormData>({validationSchema: EditTodoSchema});
 
     if (!todo) {
         return (
-            <div>Not found</div>
+            <form className="create-todo-form">
+                <div className="create-todo-form__field">
+                    <div className="submit-btn">
+                        The Todo not found!
+                    </div>
+                </div>
+            </form>
         );
     }
 
-    const onSubmit = (data: EditTodoTaskFormData) => {
-        onEdit({
+    const handleEditTodo = async (data: EditTodoTaskFormData) => {
+        const updatedTodo: Todo = {
             ...todo,
             ...data,
-            status: data.status ? TodoListTaskStatus.Complete : TodoListTaskStatus.NoCompleted,
-        });
+            status: data.status ? TodoStatus.Complete : TodoStatus.NoCompleted,
+        };
+
+        try {
+            await dispatch(editTodo(updatedTodo));
+            onEdit && onEdit(updatedTodo);
+        } catch (errors) {
+            Object.keys(errors).forEach(key => {
+                setError(key, key, errors[key])
+            });
+        }
     };
 
-    console.log('render EditTodoTaskForm');
+    console.log('render EditTodoForm');
     return (
-        <form className="create-todo-form" onSubmit={handleSubmit(onSubmit)}>
+        <form className="create-todo-form" onSubmit={handleSubmit(handleEditTodo)}>
             <div className="create-todo-form__field">
                 <div className="new-todo">
-                    Completed: <input type="checkbox" name="status" defaultChecked={todo.status === TodoListTaskStatus.Complete} ref={register} />
+                    Completed: <input type="checkbox" name="status" defaultChecked={todo.status === TodoStatus.Complete} ref={register} />
                 </div>
             </div>
             <div className={classNames("create-todo-form__field", {error: errors.text})}>
@@ -55,9 +71,8 @@ export function EditTodoTaskForm({ onEdit }: CreateTodoFormProps) {
                   className="new-todo"
                   placeholder="What needs to be done?"
                   autoFocus={true}
-              >
-                  {todo.text}
-              </textarea>
+                  defaultValue={todo.text}
+              />
                 {errors.text && (
                     <div className="create-todo-form__error-message">
                         {errors.text.message}
@@ -78,4 +93,4 @@ export function EditTodoTaskForm({ onEdit }: CreateTodoFormProps) {
             </div>
         </form>
     );
-}
+};

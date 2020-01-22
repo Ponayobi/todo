@@ -2,28 +2,29 @@ import * as React from "react";
 import {LinkButton} from "../components/LinkButton";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../store";
-import {getTodoListRequest} from "../modules/Todo/actionApi";
-import { GetTodoListRequest } from "../api";
+import {getTodoList} from "../modules/Todo/actionApi";
+import {generateKey} from "../utils";
 
-export interface FiltersProps {
-    title: string;
-    fields: FilterFields<GetTodoListRequest[keyof GetTodoListRequest]>[];
-    fieldName: keyof GetTodoListRequest;
+export interface FilterProps<T> {
+    title?: string;
+    fields: FilterFields<T[keyof T]>[];
+    fieldName: keyof T;
+    fieldValue: T[keyof T];
 }
 
 export type FilterFields<T> = {
     name: string,
-    value: T,
+    value?: T,
 }
 
-export function Filter({title, fields, fieldName}: FiltersProps) {
+export function Filter<T>({title, fields, fieldName, fieldValue}: FilterProps<T>) {
     const dispatch = useDispatch();
-    const filter = useSelector(({ todo }: RootState) => todo.filter);
+    const filter = useSelector(({ todo }: RootState) => todo.filters);
 
-    const handleClickFilter = (value: GetTodoListRequest[keyof GetTodoListRequest]) => {
-        if (filter[fieldName] === value) return;
+    const handleClickFilter = (value: T[keyof T]) => {
+        if (fieldValue === value) return;
 
-        dispatch(getTodoListRequest({
+        dispatch(getTodoList({
             ...filter,
             [fieldName]: value,
         }));
@@ -32,15 +33,19 @@ export function Filter({title, fields, fieldName}: FiltersProps) {
     console.log('render Filter');
     return (
         <ul className="filters">
-            <li>
-                {title}
-            </li>
-            {' '}
-
-            {fields.map((field) => (
+            {title && (
                 <React.Fragment>
                     <li>
-                        <LinkButton value={field.value} isActive={filter[fieldName] === field.value} onClick={handleClickFilter}>
+                        {title}
+                    </li>
+                    {' '}
+                </React.Fragment>
+            )}
+
+            {fields.map((field, index) => (
+                <React.Fragment key={generateKey(index)}>
+                    <li>
+                        <LinkButton value={field.value} isActive={fieldValue === field.value} onClick={field.value && handleClickFilter}>
                             {field.name}
                         </LinkButton>
                     </li>

@@ -3,26 +3,26 @@ import classNames from "classnames";
 
 export interface LinkButtonTypes {
     children?: React.ReactNode;
-    value: string | number | symbol;
+    value?: any;
     isActive: boolean;
-    onClick(value: string | number | symbol): void;
+    onClick?: (value: any) => void;
 }
 export function LinkButton({value, onClick, isActive, children}: LinkButtonTypes) {
-    const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-        onClick(value);
+        onClick && onClick(value);
     };
 
     console.log('render LinkButton');
     return (
-        <a
-            href={`#`}
-            className={classNames({
-                selected: isActive
+        <button
+            className={classNames("link-btn", {
+                selected: isActive,
+                clickable: !!onClick,
             })}
             onClick={handleClick}
         >
             {children}
-        </a>
+        </button>
     );
 }

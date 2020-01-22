@@ -1,44 +1,88 @@
 import { Dispatch } from "redux";
 import { RootState } from "../../store";
 import {
-    createTodoListTask,
-    updateTodoListTask,
-    getTodoList,
-    CreateTodoListTaskRequest,
-    TodoListTask,
-    GetTodoListRequest, UpdateTodoRequest
+    createTodoRequest,
+    editTodoRequest,
+    getTodoListRequest,
+    CreateTodoRequest,
+    Todo,
+    GetTodoListFilters, EditTodoRequest
 } from "../../api";
-import { success } from 'react-notification-system-redux';
-import { createTodo, updateTodo, updateTodoList, updateTodoFilter } from "./actions";
+import { success, error } from 'react-notification-system-redux';
+import {setTodo, replaceTodo, setTodoList, replaceTodoFilters, setTodoTotalCount} from "./actions";
 import { push } from "connected-react-router";
+import {TodoFilters} from "./index";
+import {AxiosError} from "axios";
 
-export const createTaskRequest = (request: CreateTodoListTaskRequest) => async (dispatch: Dispatch) => {
-    const task = await createTodoListTask(request);
-    task.message && dispatch(createTodo(task.message));
-    dispatch(success({
-        message: 'Task successfully added',
-        position: 'bc',
-        autoDismiss: 10,
-    }));
-};
-export const updateTaskRequest = (request: TodoListTask) => async (dispatch: Dispatch, getState: () => RootState) => {
-    const { auth: { accessToken } } = getState();
+export const getTodoList = (filters?: TodoFilters) => async (dispatch: Dispatch, getState: () => RootState) => {
+    try {
+        const { todo: { filters: defaultFilters } } = getState();
+        const requestData: GetTodoListFilters = {
+            sort_direction: filters?.sortDirection || defaultFilters.sortDirection,
+            sort_field: filters?.sortField || defaultFilters.sortField,
+            page: filters?.pageNumber || defaultFilters.pageNumber,
+        };
 
-    const data: UpdateTodoRequest = {
-        ...request,
-        token: accessToken,
-    };
-    const task = await updateTodoListTask(data);
-    task.message && dispatch(updateTodo(task.message));
-    dispatch(success({
-        message: 'Task successfully updated',
-        position: 'bc',
-        autoDismiss: 10,
-    }));
-    dispatch(push('/'));
+        const request = await getTodoListRequest(requestData);
+        dispatch(setTodoList(request.data.tasks));
+        dispatch(setTodoTotalCount(parseInt(request.data.total_task_count)));
+        filters && dispatch(replaceTodoFilters(filters));
+    } catch (e) {
+        dispatch(error({
+            title: "Error getting Todo list",
+            message: (e as AxiosError).message,
+        }));
+        const { response } = (e as AxiosError);
+        return Promise.reject(response?.data);
+    }
 };
-export const getTodoListRequest = (request?: GetTodoListRequest) => async (dispatch: Dispatch) => {
-    const task = await getTodoList(request);
-    request && dispatch(updateTodoFilter(request));
-    task.message && dispatch(updateTodoList(task.message));
+
+export const createTodo = (todo: Todo) => async (dispatch: Dispatch) => {
+    try {
+        const requestData: CreateTodoRequest = {
+            text: todo.text,
+            username: todo.username,
+            email: todo.email,
+        };
+
+        const response = await createTodoRequest(requestData);
+        dispatch(setTodo(response.data));
+        dispatch(success({
+            message: 'Todo successfully added',
+            position: 'bc',
+            autoDismiss: 10,
+        }));
+    } catch (e) {
+        dispatch(error({
+            title: "Error creating Todo",
+            message: (e as AxiosError).message,
+        }));
+        const { response } = (e as AxiosError);
+        return Promise.reject(response?.data);
+    }
+};
+
+export const editTodo = (todo: Todo) => async (dispatch: Dispatch, getState: () => RootState) => {
+    try {
+        const { auth: { accessToken } } = getState();
+        const requestData: EditTodoRequest = {
+            ...todo,
+            token: accessToken,
+        };
+        await editTodoRequest(requestData);
+        dispatch(replaceTodo(todo));
+        dispatch(success({
+            message: 'Todo successfully updated',
+            position: 'bc',
+            autoDismiss: 10,
+        }));
+        dispatch(push('/'));
+    } catch (e) {
+        dispatch(error({
+            title: "Error editing Todo",
+            message: (e as AxiosError).message,
+        }));
+        const { response } = (e as AxiosError);
+        return Promise.reject(response?.data);
+    }
 };

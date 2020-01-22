@@ -1,9 +1,10 @@
 import * as React from "react";
-import { TodoListTask, TodoListTaskStatus } from "../api";
+import { TodoStatus } from "../api";
+import { EditableTodo } from "../modules/Todo";
 
 export interface TodoItemProps {
     canEdit: boolean;
-    todo: TodoListTask;
+    todo: EditableTodo;
     onEdit: (id: number) => void;
 }
 
@@ -16,10 +17,12 @@ export function TodoItem({ todo, onEdit, canEdit }: TodoItemProps) {
             <input
                 className="toggle"
                 type="checkbox"
-                checked={todo.status === TodoListTaskStatus.Complete}
+                checked={todo.status === TodoStatus.Complete}
+                readOnly
             />
             <label>
                 {todo.text}
+                {todo.isEdited && <span>Edited by Admin</span>}
             </label>
             <label className="user-info">
                 Username: {todo.username}, Email: {todo.email}

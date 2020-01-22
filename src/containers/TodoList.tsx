@@ -1,22 +1,24 @@
 import * as React from "react";
 import classNames from "classnames";
-import {TodoItem} from "../components/TodoItem";
-import {TodoListTask, TodoListTaskStatus} from "../api";
-import {useHistory, useRouteMatch} from "react-router-dom";
-import {useSelector} from "react-redux";
-import {RootState} from "../store";
+import { TodoItem } from "../components/TodoItem";
+import { TodoStatus} from "../api";
+import { useRouteMatch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { push } from "connected-react-router";
 
-export interface TodoListProps {
-    todoItems: TodoListTask[];
-}
+export interface TodoListProps {}
 
-export function TodoList({ todoItems }: TodoListProps) {
-    const { path } = useRouteMatch();
-    const { push } = useHistory();
+export function TodoList() {
+    const dispatch = useDispatch();
+    const todoItems = useSelector(({ todo }: RootState) => todo.items);
     const isAuth = useSelector((state: RootState) => !!state.auth.accessToken);
+    const { path } = useRouteMatch();
+
+    if (!todoItems || !todoItems.length) return null;
 
     const handleClickEdit = (id: number) => {
-        push(`${path}/edit/${id}`);
+        dispatch(push(`${path}/edit/${id}`));
     };
 
     console.log('render TodoList');
@@ -24,7 +26,7 @@ export function TodoList({ todoItems }: TodoListProps) {
         <ul className="todo-list">
             {todoItems.map((todo) => (
                 <li key={todo.id} className={classNames({
-                    completed: todo.status === TodoListTaskStatus.Complete
+                    completed: todo.status === TodoStatus.Complete
                 })}>
                     <TodoItem todo={todo} canEdit={isAuth} onEdit={handleClickEdit} />
                 </li>

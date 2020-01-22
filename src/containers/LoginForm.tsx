@@ -2,35 +2,39 @@ import * as React from "react";
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import classNames from "classnames";
-import {CreateTodoListTaskRequest, LoginRequest} from "../api";
+import {LoginRequest} from "../api";
 import {useDispatch} from "react-redux";
-import {loginRequest} from "../modules/Auth/actionApi";
-import { useHistory } from "react-router-dom";
+import {login} from "../modules/Auth/actionApi";
 
-export interface CreateTodoFormProps {}
+
+export interface LoginFormProps {
+    onLogin?: (data: LoginRequest) => void;
+}
 
 const LoginSchema = yup.object().shape({
     username: yup.string().required("This field is required"),
     password: yup.string().required("This field is required"),
 });
 
-export function LoginForm() {
-    const {register, handleSubmit, watch, errors, setError} = useForm<LoginRequest>({validationSchema: LoginSchema});
+export function LoginForm({ onLogin}: LoginFormProps) {
+    const {register, handleSubmit, reset, errors, setError} = useForm<LoginRequest>({validationSchema: LoginSchema});
     const dispatch = useDispatch();
 
-    const onLogin = async (data: LoginRequest) => {
-        const response: any = await dispatch(loginRequest(data));
-        if (response) {
-            Object.keys(response.message).forEach(key => {
-                console.log(response.message[key]);
-                setError(key, key, response.message[key])
+    const handleLogin = async (data: LoginRequest) => {
+        try {
+            await dispatch(login(data));
+            reset();
+            onLogin && onLogin(data);
+        } catch (errors) {
+            Object.keys(errors).forEach(key => {
+                setError(key, key, errors[key])
             });
         }
     };
 
     console.log('render LoginForm');
     return (
-        <form className="create-todo-form" onSubmit={handleSubmit(onLogin)}>
+        <form className="create-todo-form" onSubmit={handleSubmit(handleLogin)}>
             <div className={classNames("create-todo-form__field", {error: errors.username})}>
               <input
                   ref={register({required: true})}

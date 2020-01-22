@@ -1,66 +1,75 @@
-const _apiHost = 'https://uxcandy.com/~shapoval/test-task-backend/v2';
+import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError} from 'axios';
+import {generateFormData} from "../utils";
+export const API_HOST = 'https://uxcandy.com/~shapoval/test-task-backend/v2';
 
-export type ApiMethods = "GET" | "POST";
+const api = axios.create({
+    baseURL: API_HOST,
+    timeout: 1000,
+});
+api.defaults.headers.post['Content-Type'] = "multipart/form-data";
+
+addDeveloperNameInterceptor(api);
+addErrorInterceptor(api);
+addFormDataInterceptor(api);
+
+function addDeveloperNameInterceptor(instance: AxiosInstance): number {
+    return instance.interceptors.request.use((config) => {
+        return {
+            ...config,
+            params: {
+                ...config.params,
+                developer: 'Ponayobi',
+            }
+        };
+    });
+}
+function addFormDataInterceptor(instance: AxiosInstance): number {
+    return instance.interceptors.request.use((config) => {
+        if (config.method === 'post') {
+            config.data = generateFormData(config.data);
+        }
+        return config;
+    });
+}
+function addErrorInterceptor(instance: AxiosInstance): number {
+    return instance.interceptors.response.use((response: AxiosResponse<ApiResponse>) => {
+        let result: AxiosResponse = {
+            ...response,
+            data: response.data.message,
+        };
+
+        if (response.data.status === "error") {
+            const message = typeof response.data.message === "string" ? response.data.message : "";
+            const error: Error = new Error(message);
+
+            return Promise.reject({
+                ...error,
+                config: result.config,
+                request: result.request,
+                response: result,
+                isAxiosError: true,
+                toJSON: function () {
+                    return {
+                        message: this.message,
+                        name: this.name,
+                        stack: this.stack,
+                        config: this.config,
+                        code: this.code
+                    };
+                }
+            } as AxiosError);
+        }
+        return result;
+    });
+}
+
 export type ApiStatus = "ok" | "error";
-export interface ApiResponse<T = undefined> {
+
+export interface ApiResponse<T = never> {
     status: ApiStatus;
     message?: T;
 }
 
-async function request(url: string, params: any, method: ApiMethods = 'GET') {
-
-    const options: RequestInit = {
-        method,
-        mode: 'cors',
-    };
-
-    url += '?developer=Ponayobi';
-
-    if (params) {
-        if (method === 'GET') {
-            url += '&' + objectToQueryString(params);
-        } else {
-            options.body = objectToFormDate(params);
-        }
-    }
-
-    const response = await fetch(_apiHost + url, options);
-
-    if (response.status !== 200) {
-        return generateErrorResponse('The server responded with an unexpected status.');
-    }
-
-    const result = await response.json();
-
-    return result;
+export function request<T = any, R = AxiosResponse<T>> (config: AxiosRequestConfig): Promise<R> {
+    return api.request(config);
 }
-
-function objectToQueryString(obj: any): string {
-    return Object.keys(obj).map(key => key + '=' + obj[key]).join('&');
-}
-
-function objectToFormDate(obj: any) {
-    const formData = new FormData();
-    Object.keys(obj).forEach(key => formData.append(key, obj[key]));
-    return formData;
-}
-
-function generateErrorResponse(message: string) {
-    return {
-        status : 'error',
-        message
-    };
-}
-
-async function get<T>(url: string, params?: any): Promise<ApiResponse<T>> {
-    return await request(url, params);
-}
-
-async function post<T = undefined>(url: string, params?: any): Promise<ApiResponse<T>> {
-    return await request(url, params, "POST");
-}
-
-export default {
-    get,
-    post,
-};
