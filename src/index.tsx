@@ -48,7 +48,7 @@ const Setup= ({ store, persistor, history}: SetupProps) => {
     useEffect(() => {
         // @ts-ignore
         dispatch(getTodoList());
-    });
+    }, [dispatch]);
 
     return (
         <Provider store={store}>

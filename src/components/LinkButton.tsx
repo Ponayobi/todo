@@ -1,19 +1,18 @@
 import * as React from "react";
 import classNames from "classnames";
 
-export interface LinkButtonTypes {
+export interface LinkButtonProps {
     children?: React.ReactNode;
     value?: any;
     isActive: boolean;
     onClick?: (value: any) => void;
 }
-export function LinkButton({value, onClick, isActive, children}: LinkButtonTypes) {
+export function LinkButton({value, onClick, isActive, children}: LinkButtonProps) {
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-        onClick && onClick(value);
+        onClick && value && onClick(value);
     };
 
-    console.log('render LinkButton');
     return (
         <button
             className={classNames("link-btn", {

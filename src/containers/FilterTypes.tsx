@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
-import { Filter, FilterFields } from "./Filter";
+import { Filter, FilterFields, FilterProps } from "./Filter";
 import { TodoFilters } from "../modules/Todo";
 import { TodoListSortField } from "../api";
 
@@ -14,16 +14,17 @@ const fieldsOfType: Array<FilterFields<TodoListSortField>> = [
 
 export interface FilterTypesProps {}
 
-export function FilterTypes() {
-    const filters = useSelector(({ todo }: RootState) => todo.filters);
+const MemoFilter = React.memo<FilterProps<TodoFilters>>(Filter);
 
-    console.log('render FilterTypes');
+export function FilterTypes() {
+    const sortField = useSelector(({ todo }: RootState) => todo.filters.sortField);
+
     return (
-        <Filter<TodoFilters>
+        <MemoFilter
             title="Filter by"
             fields={fieldsOfType}
             fieldName="sortField"
-            fieldValue={filters.sortField}
+            fieldValue={sortField}
         />
     )
 }

@@ -1,9 +1,7 @@
 import * as React from "react";
-import {LinkButton} from "../components/LinkButton";
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../store";
-import {getTodoList} from "../modules/Todo/actionApi";
-import {generateKey} from "../utils";
+import { useDispatch } from "react-redux";
+import { getTodoList } from "../modules/Todo/actionApi";
+import { LinkButton, LinkButtonProps } from "../components/LinkButton";
 
 export interface FilterProps<T> {
     title?: string;
@@ -17,20 +15,17 @@ export type FilterFields<T> = {
     value?: T,
 }
 
+const MemoLinkButton = React.memo<LinkButtonProps>(LinkButton);
+
 export function Filter<T>({title, fields, fieldName, fieldValue}: FilterProps<T>) {
     const dispatch = useDispatch();
-    const filter = useSelector(({ todo }: RootState) => todo.filters);
 
-    const handleClickFilter = (value: T[keyof T]) => {
-        if (fieldValue === value) return;
-
+    const handleClickFilter = React.useCallback((value: T[keyof T]) => {
         dispatch(getTodoList({
-            ...filter,
             [fieldName]: value,
         }));
-    };
+    }, [fieldName, dispatch]);
 
-    console.log('render Filter');
     return (
         <ul className="filters">
             {title && (
@@ -43,11 +38,11 @@ export function Filter<T>({title, fields, fieldName, fieldValue}: FilterProps<T>
             )}
 
             {fields.map((field, index) => (
-                <React.Fragment key={generateKey(index)}>
+                <React.Fragment key={index}>
                     <li>
-                        <LinkButton value={field.value} isActive={fieldValue === field.value} onClick={field.value && handleClickFilter}>
+                        <MemoLinkButton value={field.value} isActive={fieldValue === field.value} onClick={field.value && handleClickFilter}>
                             {field.name}
-                        </LinkButton>
+                        </MemoLinkButton>
                     </li>
                     {' '}
                 </React.Fragment>

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
-import { Filter, FilterFields } from "./Filter";
+import { Filter, FilterFields, FilterProps } from "./Filter";
 import { TodoFilters } from "../modules/Todo";
 import { TodoListSortDirection } from "../api";
 
@@ -12,11 +12,17 @@ const fieldsOfDirection: Array<FilterFields<TodoListSortDirection>> = [
 
 export interface FilterDirectionsProps {}
 
-export function FilterDirections() {
-    const filters = useSelector(({ todo }: RootState) => todo.filters);
+const MemoFilter = React.memo<FilterProps<TodoFilters>>(Filter);
 
-    console.log('render Pagination');
+export function FilterDirections() {
+    const sortDirection = useSelector(({ todo }: RootState) => todo.filters.sortDirection);
+
     return (
-        <Filter<TodoFilters> title="Filter by" fields={fieldsOfDirection} fieldName="sortDirection" fieldValue={filters.sortDirection} />
+        <MemoFilter
+            title="Sorted by"
+            fields={fieldsOfDirection}
+            fieldName="sortDirection"
+            fieldValue={sortDirection}
+        />
     )
 }

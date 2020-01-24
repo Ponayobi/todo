@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { ProtectedRoute } from "../../index";
 
 import './Home.css';
@@ -10,14 +10,12 @@ import { FilterDirections } from "../../containers/FilterDirections";
 import { Pagination } from "../../containers/Pagination";
 import { EditTodoForm } from '../../containers/EditTodoForm';
 
-export const Home: React.FC = () => {
-    const { path } = useRouteMatch();
-
+export const Home: React.FC = React.memo(() => {
     console.log('render App');
     return (
         <div className="todoapp">
             <Switch>
-                <Route exact path={path}>
+                <Route exact path="/home">
                     <header className="header">
                         <h1>todos</h1>
                         <CreateTodoForm />
@@ -31,7 +29,7 @@ export const Home: React.FC = () => {
                         <Pagination />
                     </footer>
                 </Route>
-                <ProtectedRoute path={`${path}/edit/:todoId`}>
+                <ProtectedRoute path={`/home/edit/:todoId`}>
                     <header className="header">
                         <h1>Edit todo</h1>
                         <EditTodoForm />
@@ -40,6 +38,6 @@ export const Home: React.FC = () => {
             </Switch>
         </div>
     );
-};
+});
 
 export default Home;

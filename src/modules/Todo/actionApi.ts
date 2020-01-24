@@ -16,11 +16,11 @@ import {AxiosError} from "axios";
 
 export const getTodoList = (filters?: TodoFilters) => async (dispatch: Dispatch, getState: () => RootState) => {
     try {
-        const { todo: { filters: defaultFilters } } = getState();
+        const { todo: { filters: { sortField = 'id', pageNumber = 1, sortDirection = 'asc' } } } = getState();
         const requestData: GetTodoListFilters = {
-            sort_direction: filters?.sortDirection || defaultFilters.sortDirection,
-            sort_field: filters?.sortField || defaultFilters.sortField,
-            page: filters?.pageNumber || defaultFilters.pageNumber,
+            sort_direction: filters?.sortDirection || sortDirection,
+            sort_field: filters?.sortField || sortField,
+            page: filters?.pageNumber || pageNumber,
         };
 
         const request = await getTodoListRequest(requestData);

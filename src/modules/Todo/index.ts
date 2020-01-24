@@ -5,9 +5,9 @@ export interface EditableTodo extends Todo {
 }
 
 export interface TodoFilters {
-    sortField: TodoListSortField;
-    sortDirection: TodoListSortDirection;
-    pageNumber: number;
+    sortField?: TodoListSortField;
+    sortDirection?: TodoListSortDirection;
+    pageNumber?: number;
 }
 
 export interface TodoState {

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
-import { Filter, FilterFields } from "./Filter";
+import { Filter, FilterFields, FilterProps } from "./Filter";
 import { TodoFilters } from "../modules/Todo";
 
 enum PageTypes {
@@ -60,17 +60,19 @@ const fetchPageNumbers = (totalPages: number, currentPage: number, pageNeighbour
 
 export interface PaginationProps {}
 
+const MemoFilter = React.memo<FilterProps<TodoFilters>>(Filter);
+
 export function Pagination() {
-    const filters = useSelector(({ todo }: RootState) => todo.filters);
+    const pageNumber = useSelector(({ todo }: RootState) => todo.filters.pageNumber);
+    const totalCount = useSelector(({ todo }: RootState) => todo.totalCount);
 
     const pageLimit = 3;
     const pageNeighbours = 2;
-    const totalCount = useSelector(({ todo }: RootState) => todo.totalCount);
     const totalPages = Math.ceil(totalCount / pageLimit);
 
     if (totalPages === 1) return null;
 
-    const pages = fetchPageNumbers(totalPages, filters.pageNumber, pageNeighbours);
+    const pages = fetchPageNumbers(totalPages, pageNumber || 1, pageNeighbours);
 
     const paginationFields: Array<FilterFields<number>> = pages.map((page) => {
         switch (page) {
@@ -89,8 +91,11 @@ export function Pagination() {
         }
     });
 
-    console.log('render Pagination');
     return (
-        <Filter<TodoFilters> fields={paginationFields} fieldName="pageNumber" fieldValue={filters.pageNumber} />
+        <MemoFilter
+            fields={paginationFields}
+            fieldValue={pageNumber}
+            fieldName="pageNumber"
+        />
     )
 }
